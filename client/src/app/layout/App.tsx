@@ -2,7 +2,8 @@
 import { CssBaseline,Container, createTheme, ThemeProvider } from '@mui/material';
 import Header from './Header';
 import { useState } from 'react';
-import { Outlet } from '@mui/icons-material';
+// import { Outlet } from '@mui/icons-material';
+import { Outlet } from 'react-router-dom';
 
 
 function App(){

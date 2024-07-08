@@ -1,4 +1,6 @@
 using API.Data;
+using API.Middlware;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +20,8 @@ builder.Services.AddCors();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+//app.UseDeveloperExceptionPage();//để kích hoạt trang lỗi , đây là trang chi tiết, hiện thị thông tin về ngoại lệ, giúp dễ dàng hơn trong việc gỡ lỗi và xử lý sự cố
+app.UseMiddleware<ExeptionMiddleware>();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
