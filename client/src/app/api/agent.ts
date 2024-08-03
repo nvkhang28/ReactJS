@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import axios, { AxiosError, AxiosResponse } from "axios"; // để thực hiện một số HTTP đén API cụ thể , và đồng thời nó cấu hình interceptor để xử lý các lỗi phản hồi từ lỗi API
 import { toast } from 'react-toastify';
 import { router } from '../router/Routes';
@@ -28,6 +29,24 @@ axios.interceptors.response.use(async response => {
 }, (error: AxiosError) => {
     const {data, status} = error.response as AxiosResponse;
     switch (status) {// xử lý lỗi: kiểm tra trạng Thái HTTP(status)
+=======
+import axios, { AxiosError, AxiosResponse } from "axios";
+import { toast } from 'react-toastify';
+import { router } from '../router/Routes';
+
+const sleep = () => new Promise(resolve => setTimeout(resolve, 500))
+
+axios.defaults.baseURL = 'http://localhost:5515/api/';
+
+const responseBody = (response: AxiosResponse) => response.data;
+
+axios.interceptors.response.use(async response => {
+    await sleep();
+    return response
+}, (error: AxiosError) => {
+    const {data, status} = error.response as AxiosResponse;
+    switch (status) {
+>>>>>>> 38528589831e3a4d6355354a13693e0fa2111371
         case 400:
             if (data.errors) {
                 const modelStateErrors: string[] = [];
@@ -41,6 +60,7 @@ axios.interceptors.response.use(async response => {
             toast.error(data.title);
             break;
         case 401:
+<<<<<<< HEAD
             toast.error(data.title || 'Unauthrised');
             break;
         case 403:
@@ -49,6 +69,12 @@ axios.interceptors.response.use(async response => {
         case 500:
             router.navigate('/server-error', {state: {error: data}})
             toast.error(data.title);
+=======
+            toast.error(data.title);
+            break;
+        case 500:
+            router.navigate('/server-error', {state: {error: data}})
+>>>>>>> 38528589831e3a4d6355354a13693e0fa2111371
             break;
         default:
             break;
@@ -56,6 +82,7 @@ axios.interceptors.response.use(async response => {
     return Promise.reject(error.response);
 })
 
+<<<<<<< HEAD
 // Đối tưởng chứa các phương thức để thực hiên các yêu cầu HTTP và để trích xuất dữ liệu từ các phản hồi
 const requests = {
     get: (url: string, params?: URLSearchParams) => axios.get(url, {params}).then(responseBody),
@@ -78,6 +105,20 @@ const Catalog = {
 }
 
 // Đối tượng này chứa các phương thức đẻ gây ra các lỗi thử nghiệm khác nhau 
+=======
+const requests = {
+    get: (url: string) => axios.get(url).then(responseBody),
+    post: (url: string, body: object) => axios.post(url, body).then(responseBody),
+    put: (url: string, body: object) => axios.put(url, body).then(responseBody),
+    del: (url: string) => axios.delete(url).then(responseBody)
+}
+
+const Catalog = {
+    list: () => requests.get('products'),
+    details: (id: number) => requests.get(`products/${id}`)
+}
+
+>>>>>>> 38528589831e3a4d6355354a13693e0fa2111371
 const TestErrors = {
     get400Error: () => requests.get('buggy/bad-request'),
     get401Error: () => requests.get('buggy/unauthorised'),
@@ -86,6 +127,7 @@ const TestErrors = {
     getValidationError: () => requests.get('buggy/validation-error')
 }
 
+<<<<<<< HEAD
 const Basket = {
     get: () => requests.get('basket'),
     addItem: (productId: number, quantity = 1) => requests.post(`basket?productId=${productId}&quantity=${quantity}`, {}),
@@ -135,6 +177,11 @@ const agent = {
     Payments,
     Admin
 
+=======
+const agent = {
+    Catalog,
+    TestErrors
+>>>>>>> 38528589831e3a4d6355354a13693e0fa2111371
 }
 
 export default agent;

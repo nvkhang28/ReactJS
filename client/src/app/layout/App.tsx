@@ -15,10 +15,18 @@ import { fetchBasketAsync } from "../../fearures/basket/basketSlice";
 import { fetchCurrentUser } from "../../fearures/account/accountSlice";
 import HomePage from "../../fearures/home/HomePage";
 
+<<<<<<< HEAD
 function App() {
   const location = useLocation();
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(true);
+=======
+import { CssBaseline,Container, createTheme, ThemeProvider } from '@mui/material';
+import Header from './Header';
+import { useState } from 'react';
+// import { Outlet } from '@mui/icons-material';
+import { Outlet } from 'react-router-dom';
+>>>>>>> 38528589831e3a4d6355354a13693e0fa2111371
 
   const initApp = useCallback(async () => {
     try {

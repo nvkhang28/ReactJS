@@ -19,6 +19,7 @@
     "@mui/lab": "^5.0.0-alpha.147",
     "@mui/material": "^5.14.11",
     "@reduxjs/toolkit": "^1.9.7",
+<<<<<<< HEAD
     "@stripe/react-stripe-js": "^2.7.3",
     "@stripe/stripe-js": "^2.4.0",
     "@types/react-router-dom": "^5.3.3",
@@ -26,6 +27,14 @@
     "axios": "^1.7.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+=======
+    "@stripe/react-stripe-js": "^2.3.1",
+    "@stripe/stripe-js": "^2.1.7",
+    "@types/react-slick": "^0.23.10",
+    "axios": "^1.7.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+>>>>>>> 38528589831e3a4d6355354a13693e0fa2111371
     "react-dropzone": "^14.2.3",
     "react-hook-form": "^7.52.1",
     "react-redux": "^8.1.3",

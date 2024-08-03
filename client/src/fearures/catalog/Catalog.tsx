@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import ProductList from "./ProductList";
 import LoadingComponent from "../../app/layout/LoadingComponent";
 import {
@@ -17,12 +18,19 @@ const sortOptions = [
   { value: "priceDesc", label: "Price - High to low" },
   { value: "price", label: "Price - Low to high" },
 ];
+=======
+import { useState, useEffect } from "react";
+import { Product } from "../../app/models/product";
+import ProductList from "./ProductList";
+import agent from "../../app/api/agent";
+>>>>>>> 38528589831e3a4d6355354a13693e0fa2111371
 
 export default function Catalog() {
   const { products, filtersLoaded, brands, types, metaData } = useProducts();
   const { productParams } = useAppSelector((state) => state.catalog);
   const dispatch = useAppDispatch();
 
+<<<<<<< HEAD
   if (!filtersLoaded) return <LoadingComponent message="Loading products..." />;
 
   return (
@@ -74,5 +82,15 @@ export default function Catalog() {
         )}
       </Grid>
     </Grid>
+=======
+  useEffect(() => {
+    agent.Catalog.list().then((products) => setProducts(products));
+  }, []);
+
+  return (
+    <>
+      <ProductList products={products} />
+    </>
+>>>>>>> 38528589831e3a4d6355354a13693e0fa2111371
   );
 }

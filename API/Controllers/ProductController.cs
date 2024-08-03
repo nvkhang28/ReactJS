@@ -1,4 +1,5 @@
 using API.Data;
+<<<<<<< HEAD
 using API.DTOs;
 using API.Entities;
 using API.Extensions;
@@ -6,11 +7,15 @@ using API.RequestHelpers;
 using API.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+=======
+using API.Entities;
+>>>>>>> 38528589831e3a4d6355354a13693e0fa2111371
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
+<<<<<<< HEAD
 public class ProductsController : BaseApiController
 {
     private readonly StoreContext _context;
@@ -20,10 +25,19 @@ public class ProductsController : BaseApiController
     {
         _imageService = imageService;
         _mapper = mapper;
+=======
+
+public class ProductController : BaseApiController
+{
+    private readonly StoreContext _context;
+    public ProductController(StoreContext context)
+    {
+>>>>>>> 38528589831e3a4d6355354a13693e0fa2111371
         _context = context;
     }
 
     [HttpGet]
+<<<<<<< HEAD
     public async Task<ActionResult<PagedList<Product>>> GetProducts([FromQuery] ProductParams productParams)
     {
         var query = _context.Products
@@ -138,5 +152,16 @@ public class ProductsController : BaseApiController
         if (result) return Ok();
 
         return BadRequest(new ProblemDetails { Title = "Problem deleting product" });
+=======
+    public async Task<ActionResult<List<Product>>> GetProducts()
+    {
+        return await _context.Products.ToListAsync();
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Product>> GetProduct(int id)
+    {
+        return await _context.Products.FindAsync(id);
+>>>>>>> 38528589831e3a4d6355354a13693e0fa2111371
     }
 }

@@ -6,6 +6,7 @@ import {
   TableCell,
   TableContainer,
   TableRow,
+<<<<<<< HEAD
   TextField,
   Typography,
 } from "@mui/material";
@@ -79,6 +80,31 @@ export default function ProductDetails() {
     return <LoadingComponent message="Loading product..." />;
 
   if (!product) return <NotFound />;
+=======
+  Typography,
+} from "@mui/material";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Product } from "../../app/models/product";
+import agent from "../../app/api/agent";
+
+export default function ProductDetails() {
+  const { id } = useParams<{ id: string }>();
+  const [product, setProduct] = useState<Product | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    id &&
+      agent.Catalog.details(parseInt(id))
+        .then((response) => setProduct(response))
+        .catch((error) => console.log(error))
+        .finally(() => setLoading(false));
+  }, [id]);
+
+  if (loading) return <h3>Loading</h3>;
+
+  if (!product) return <h3>Product Not Found</h3>;
+>>>>>>> 38528589831e3a4d6355354a13693e0fa2111371
 
   return (
     <Grid container spacing={6}>
@@ -121,6 +147,7 @@ export default function ProductDetails() {
             </TableBody>
           </Table>
         </TableContainer>
+<<<<<<< HEAD
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <TextField
@@ -149,6 +176,8 @@ export default function ProductDetails() {
             </LoadingButton>
           </Grid>
         </Grid>
+=======
+>>>>>>> 38528589831e3a4d6355354a13693e0fa2111371
       </Grid>
     </Grid>
   );
