@@ -7,12 +7,15 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./app/router/Routes.tsx";
+import { Provider } from "react-redux";
+import { store } from "../../client/src/app/api/store/configureStore.tsx";
+import "slick-carousel/slick/slick.scss";
+import "slick-carousel/slick/slick-theme.css";
 
-
-
-
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );

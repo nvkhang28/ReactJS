@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Học Thêm\\KhoaHoCReact\\ReactBassic\\ReStore\\API\\API.csproj": {}
+    "D:\\HomeWord\\KhoaHoCReact\\ReactBassic\\ReStore\\API\\API.csproj": {}
   },
   "projects": {
-    "D:\\Học Thêm\\KhoaHoCReact\\ReactBassic\\ReStore\\API\\API.csproj": {
+    "D:\\HomeWord\\KhoaHoCReact\\ReactBassic\\ReStore\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Học Thêm\\KhoaHoCReact\\ReactBassic\\ReStore\\API\\API.csproj",
+        "projectUniqueName": "D:\\HomeWord\\KhoaHoCReact\\ReactBassic\\ReStore\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "D:\\Học Thêm\\KhoaHoCReact\\ReactBassic\\ReStore\\API\\API.csproj",
+        "projectPath": "D:\\HomeWord\\KhoaHoCReact\\ReactBassic\\ReStore\\API\\API.csproj",
         "packagesPath": "C:\\Users\\KHANG\\.nuget\\packages\\",
-        "outputPath": "D:\\Học Thêm\\KhoaHoCReact\\ReactBassic\\ReStore\\API\\obj\\",
+        "outputPath": "D:\\HomeWord\\KhoaHoCReact\\ReactBassic\\ReStore\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\KHANG\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -46,6 +46,22 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.26.2, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.6, )"
@@ -59,6 +75,14 @@
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[8.0.6, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "Stripe.net": {
+              "target": "Package",
+              "version": "[45.5.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
