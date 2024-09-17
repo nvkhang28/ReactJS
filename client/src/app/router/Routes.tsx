@@ -29,7 +29,11 @@ export const router = createBrowserRouter([
       },
       {
         // admin routes
+<<<<<<< HEAD
         element: <RequireAuth roles={["User"]} />,
+=======
+        element: <RequireAuth roles={["Admin"]} />,
+>>>>>>> 16341f1dccbfe858a5480ca574a6ff4714c0b330
         children: [{ path: "/inventory", element: <Inventory /> }],
       },
       { path: "catalog", element: <Catalog /> },

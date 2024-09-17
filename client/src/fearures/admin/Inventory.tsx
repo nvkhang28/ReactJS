@@ -45,7 +45,11 @@ export default function Inventory() {
   function handleDeleteProduct(id: number) {
     setLoading(true);
     setTarget(id);
+<<<<<<< HEAD
     agent.User.deleteProduct(id)
+=======
+    agent.Admin.deleteProduct(id)
+>>>>>>> 16341f1dccbfe858a5480ca574a6ff4714c0b330
       .then(() => dispatch(removeProduct(id)))
       .catch((error) => console.log(error))
       .finally(() => setLoading(false));

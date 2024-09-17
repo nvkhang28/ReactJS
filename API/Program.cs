@@ -1,11 +1,22 @@
 using System.Text;
 using API.Data;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 16341f1dccbfe858a5480ca574a6ff4714c0b330
 using API.Entities;
 using API.Middlware;
 using API.RequestHelpers;
 using API.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+<<<<<<< HEAD
+=======
+=======
+using API.Middlware;
+using Microsoft.AspNetCore.Diagnostics;
+>>>>>>> 38528589831e3a4d6355354a13693e0fa2111371
+>>>>>>> 16341f1dccbfe858a5480ca574a6ff4714c0b330
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -73,8 +84,18 @@ builder.Services.AddScoped<ImageService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+<<<<<<< HEAD
 app.UseMiddleware<ExeptionMiddleware>();
 
+=======
+<<<<<<< HEAD
+app.UseMiddleware<ExeptionMiddleware>();
+
+=======
+//app.UseDeveloperExceptionPage();//để kích hoạt trang lỗi , đây là trang chi tiết, hiện thị thông tin về ngoại lệ, giúp dễ dàng hơn trong việc gỡ lỗi và xử lý sự cố
+app.UseMiddleware<ExeptionMiddleware>();
+>>>>>>> 38528589831e3a4d6355354a13693e0fa2111371
+>>>>>>> 16341f1dccbfe858a5480ca574a6ff4714c0b330
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
