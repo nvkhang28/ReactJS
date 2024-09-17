@@ -1,11 +1,36 @@
 using API.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace API.Data;
 
 public static class DbInitializer
 {
-    public static void Initialize(StoreContext context)
+    //Intitalize đc sd để khởi tạo dữ liệu trong csdl chưa tồn tại
+    // sd StoreContext cho thao tác csdl ching và User(User) để quản lí người dùng trong hệ thống
+    public static async Task Initialize(StoreContext context, UserManager<User> userManager)
     {
+        //Kiểm tra xem có bất kỳ người dùng nào đã tồn tại trong hệ thống hay không. Nếu không có người dùng nào (Users.Any() trả về false), nó sẽ tiếp tục khối mã bên trong.
+        if (!userManager.Users.Any())
+        {
+            var user = new User
+            {
+                UserName = "bob",
+                Email = "bob@test.com"
+            };
+
+            await userManager.CreateAsync(user, "Pa$$w0rd");
+            await userManager.AddToRoleAsync(user, "Member");
+
+            var admin = new User
+            {
+                UserName = "admin",
+                Email = "admin@test.com"
+            };
+
+            await userManager.CreateAsync(admin, "Pa$$w0rd");
+            await userManager.AddToRolesAsync(admin, new[] { "Admin", "Member" });
+        }
+
         if (context.Products.Any()) return;
 
         var products = new List<Product>
